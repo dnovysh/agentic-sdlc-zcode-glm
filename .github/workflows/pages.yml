@@ -1,0 +1,51 @@
+# Собирает веб-версию книги из content/ и публикует её на GitHub Pages.
+name: Веб-версия книги
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Права, которые требует actions/deploy-pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Новая сборка ждёт, пока предыдущая опубликуется.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # Дата обновления главы берётся из истории коммитов.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      - uses: actions/configure-pages@v4
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/.vitepress/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

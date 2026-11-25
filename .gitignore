@@ -1,0 +1,7 @@
+node_modules/
+
+# Результаты сборки веб-версии книги.
+site/.vitepress/dist/
+site/.vitepress/cache/
+site/.vitepress/.temp/
+site/.vitepress/config.*.timestamp-*.mjs

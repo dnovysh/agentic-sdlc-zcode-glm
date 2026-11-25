@@ -1,6 +1,6 @@
 # Agentic SDLC в ZCode и GLM 5.x
 
-[Открыть PDF](agentic-sdlc-zcode-glm.pdf) · [Релизы](https://github.com/dnovysh/agentic-sdlc-zcode-glm/releases) · [Промпты одним файлом](prompts.md)
+[Читать онлайн](https://dnovysh.github.io/agentic-sdlc-zcode-glm/) · [Открыть PDF](agentic-sdlc-zcode-glm.pdf) · [Релизы](https://github.com/dnovysh/agentic-sdlc-zcode-glm/releases) · [Промпты одним файлом](prompts.md)
 
 Адаптация книги Тёмы Пулявина [«Как построить Agentic SDLC в своём репозитории»](https://github.com/pulyavin/agentic-sdlc) для ZCode 4.0 и моделей GLM 5.x.
 
